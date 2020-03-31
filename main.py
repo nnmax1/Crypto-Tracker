@@ -37,13 +37,6 @@ class Bitcoin:
         bitcoin_marketCapBox = soup.find("span", attrs={"class":"Trsdu(0.3s)", "data-reactid":"98"})
         bitcoin_marketCap = bitcoin_marketCapBox.text.strip()
         return bitcoin_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
-
 
 
 class Ethereum:
@@ -67,12 +60,6 @@ class Ethereum:
         eth_marketCapBox = soup.find("span", attrs={"class":"Trsdu(0.3s)", "data-reactid":"130"})
         eth_marketCap = eth_marketCapBox.text.strip()
         return eth_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
 
 
 class Ripple:
@@ -96,12 +83,7 @@ class Ripple:
         XRP_marketCapBox = soup.find("span", attrs={"data-reactid":"162"})
         XRP_marketCap = XRP_marketCapBox.text.strip()
         return XRP_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
+ 
  
 
 class Tether:
@@ -125,12 +107,7 @@ class Tether:
         USDT_marketCapBox = soup.find("span", attrs={ "data-reactid":"194"})
         USDT_marketCap = USDT_marketCapBox.text.strip()
         return USDT_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
+ 
 
 class Litecoin:
     def get_name():
@@ -183,15 +160,6 @@ class BitcoinCash:
         BTCcash_marketCapBox = soup.find("span", attrs={ "data-reactid":"226"})
         BTCcash_marketCap = BTCcash_marketCapBox.text.strip()
         return BTCcash_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
-
-
-
 
 def run_app():
     root = tk.Tk()
@@ -200,10 +168,8 @@ def run_app():
     title = tk.Label(root, text = 'Cryptocurrency Tracker')
     title['font']=myFont
     title.pack()
-
     space = tk.Label(root, text = "\n\n")
     space.pack()
-
     btn1=Button(root, text = "Bitcoin", command=show_btc)
     btn1['font']=myFont
     btn1.pack(side=tk.TOP)
@@ -222,26 +188,20 @@ def run_app():
     btn6=tk.Button(root, text = "Bitcoin Cash", command=show_BTCcash)
     btn6['font']=myFont
     btn6.pack(side=tk.TOP)
-
-
-
     w = tk.Label(root,text="\n\n\n")
     w.pack()
-
-
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
- 
     tk.mainloop()
 
 def show_btc():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = Bitcoin.name
-    p = "Price(intraday): $" + Bitcoin.price
-    c= "Change: "+Bitcoin.change
-    pc = "Percent Change: "+Bitcoin.percentC
-    mc = "Market Cap: $"+Bitcoin.mCap
+    n = Bitcoin.get_name()
+    p = "Price(intraday): $" + Bitcoin.get_price()
+    c= "Change: "+Bitcoin.get_change()
+    pc = "Percent Change: "+Bitcoin.get_percentChange()
+    mc = "Market Cap: $"+Bitcoin.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -260,18 +220,17 @@ def show_btc():
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
-    
     tk.mainloop()
 
 
 def show_eth():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = Ethereum.name
-    p = "Price(intraday): $" + Ethereum.price
-    c= "Change: "+Ethereum.change
-    pc = "Percent Change: "+Ethereum.percentC
-    mc = "Market Cap: $"+Ethereum.mCap
+    n = Ethereum.get_name()
+    p = "Price(intraday): $" + Ethereum.get_price()
+    c= "Change: "+Ethereum.get_change()
+    pc = "Percent Change: "+Ethereum.get_percentChange()
+    mc = "Market Cap: $"+Ethereum.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -290,16 +249,16 @@ def show_eth():
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
-    
     tk.mainloop()
+
 def show_tether():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = Tether.name
-    p = "Price(intraday): $" + Tether.price
-    c= "Change: "+Tether.change
-    pc = "Percent Change: "+Tether.percentC
-    mc = "Market Cap: $"+Tether.mCap
+    n = Tether.get_name()
+    p = "Price(intraday): $" + Tether.get_price()
+    c= "Change: "+Tether.get_change()
+    pc = "Percent Change: "+Tether.get_percentChange()
+    mc = "Market Cap: $"+Tether.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -318,16 +277,16 @@ def show_tether():
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
-    
     tk.mainloop()
+
 def show_ripple():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = Ripple.name
-    p = "Price(intraday): $" + Ripple.price
-    c= "Change: "+Ripple.change
-    pc = "Percent Change: "+Ripple.percentC
-    mc = "Market Cap: $"+Ripple.mCap
+    n = Ripple.get_name()
+    p = "Price(intraday): $" + Ripple.get_price()
+    c= "Change: "+Ripple.get_change()
+    pc = "Percent Change: "+Ripple.get_percentChange()
+    mc = "Market Cap: $"+Ripple.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -346,16 +305,16 @@ def show_ripple():
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
-    
     tk.mainloop()
+
 def show_litecoin():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = Litecoin.name
-    p = "Price(intraday): $" + Litecoin.price
-    c= "Change: "+Litecoin.change
-    pc = "Percent Change: "+Litecoin.percentC
-    mc = "Market Cap: $"+Litecoin.mCap
+    n = Litecoin.get_name()
+    p = "Price(intraday): $" + Litecoin.get_price()
+    c= "Change: "+Litecoin.get_change()
+    pc = "Percent Change: "+Litecoin.get_percentChange()
+    mc = "Market Cap: $"+Litecoin.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -374,16 +333,16 @@ def show_litecoin():
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
-    
     tk.mainloop()
+
 def show_BTCcash():
     root = tk.Tk()
     fontStyle = font.Font(family="Helvetica", size=50)
-    n = BitcoinCash.name
-    p = "Price(intraday): $" + BitcoinCash.price
-    c= "Change: "+BitcoinCash.change
-    pc = "Percent Change: "+BitcoinCash.percentC
-    mc = "Market Cap: $"+BitcoinCash.mCap
+    n = BitcoinCash.get_name()
+    p = "Price(intraday): $" + BitcoinCash.get_price()
+    c= "Change: "+BitcoinCash.get_change()
+    pc = "Percent Change: "+BitcoinCash.get_percentChange()
+    mc = "Market Cap: $"+BitcoinCash.get_marketCap()
     item=tk.Label(root, text = datetime.now(), font=fontStyle)
     item.pack(side=tk.TOP)
     space = tk.Label(root, text = "\n")
@@ -401,8 +360,7 @@ def show_BTCcash():
     space = tk.Label(root, text = "\n")
     space.pack()
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
-    quitButton.pack(side=tk.LEFT)
-    
+    quitButton.pack(side=tk.LEFT) 
     tk.mainloop()
 
 
