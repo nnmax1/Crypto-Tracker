@@ -3,7 +3,7 @@
 
 <h2>How it works: </h2>
 <ul>
-<li>Fetches cryptocurrency data from Yahoo Finance using the BeautifulSoap4 html parser</li>
+<li>Fetches cryptocurrency data from Yahoo Finance using the BeautifulSoup4 html parser</li>
 <li>The GUI is created using python3-tkinter</li>
 <li>The user selects which currency, he/she wants to see</li>
 </ul>
