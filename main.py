@@ -8,13 +8,15 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-#global constants
+#init the web parser tool
 url = "https://finance.yahoo.com/cryptocurrencies"
 http = urllib3.PoolManager()
 response = http.request('GET', url)
 soup = BeautifulSoup(response.data.decode('utf-8'), features="html.parser")
 
 
+#Classes for each cryptocurrency contain member function that
+#return data parsed from Yahoo Finance
 
 class Bitcoin: 
     def get_name():
@@ -161,15 +163,20 @@ class BitcoinCash:
         BTCcash_marketCap = BTCcash_marketCapBox.text.strip()
         return BTCcash_marketCap
 
+#Rusns the GUI application
 def run_app():
     root = tk.Tk()
+    #font specifier
     myFont = font.Font(family='Helvetica')
     myFont = font.Font(size=30)
+    #title
     title = tk.Label(root, text = 'Cryptocurrency Tracker')
     title['font']=myFont
     title.pack()
+    #some spacing
     space = tk.Label(root, text = "\n\n")
     space.pack()
+    #buttons for each currency
     btn1=Button(root, text = "Bitcoin", command=show_btc)
     btn1['font']=myFont
     btn1.pack(side=tk.TOP)
@@ -188,11 +195,15 @@ def run_app():
     btn6=tk.Button(root, text = "Bitcoin Cash", command=show_BTCcash)
     btn6['font']=myFont
     btn6.pack(side=tk.TOP)
+    #spacing
     w = tk.Label(root,text="\n\n\n")
     w.pack()
+    #Quit button
     quitButton = tk.Button(root,text="QUIT", fg="red",command=quit)
     quitButton.pack(side=tk.LEFT)
     tk.mainloop()
+
+#Below are the actions for each button in the run_app() function:
 
 def show_btc():
     root = tk.Tk()
