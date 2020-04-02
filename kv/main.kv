@@ -1,0 +1,21 @@
+<Container>:
+    display: display
+    rows: 2
+    BoxLayout:
+        orientation: "horizontal"
+        Bitcoin_Button:
+            on_release: root.bitcoin_data()
+        BitcoinCash_Button:
+            on_release: root.bitcoincash_data()
+        Ethereum_Button:
+            on_release: root.ethereum_data()
+        Litecoin_Button:
+            on_release: root.litecoin_data()
+        Ripple_Button:
+            on_release: root.ripple_data()
+        Tether_Button:
+            on_release: root.tether_data()
+    Label:
+        id: display
+        font_size: dp(40)
+        text: 'Cryptocurrency Tracker.'
