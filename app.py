@@ -1,4 +1,4 @@
-#Created By Nick N (github username: nnmax1)
+#Created By Nick N
 import os
 import data
 import time 
