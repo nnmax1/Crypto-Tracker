@@ -120,12 +120,6 @@ class Litecoin:
         LTC_marketCapBox = soup.find("span", attrs={ "data-reactid":"258"})
         LTC_marketCap = LTC_marketCapBox.text.strip()
         return LTC_marketCap
-    #member vars
-    name = get_name()
-    price = get_price()
-    change=get_change()
-    percentC=get_percentChange()
-    mCap=get_marketCap()
 
 class BitcoinCash:
     def get_name():
