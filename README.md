@@ -1,6 +1,11 @@
 
 <h1>Cryptocurrency Tracker</h1>
 
+<h2>About: </h2>
+<p>
+This was created during my junior year of high school. I found it on an old thumb drive 3 months ago and decided to publish it to Github. 
+</p>
+
 <h2>How it works: </h2>
 <ul>
 <li>Fetches cryptocurrency data from Yahoo Finance using the BeautifulSoup4 html parser</li>
@@ -16,5 +21,4 @@
 <img height="300px" width="400px"src="./demo_imgs/rippleDemo.png"></img><br>
 <img height="300px" width="400px"src="./demo_imgs/tetherDemo.png"></img><br>
 <img height="300px" width="400px"src="./demo_imgs/BitcoinCashDemo.png"></img>
-
 
